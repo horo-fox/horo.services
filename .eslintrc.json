@@ -1,0 +1,73 @@
+{
+    "extends": [
+        "plugin:astro/recommended",
+        "plugin:deprecation/recommended",
+        "plugin:jsx-a11y/strict"
+    ],
+    "overrides": [
+        {
+            "files": ["*.astro"],
+            "parser": "astro-eslint-parser",
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser",
+                "extraFileExtensions": [".astro"]
+            },
+            "rules": {
+                "semi": "off",
+
+                // for some reason these aren't enabled by default
+                "astro/semi": "error",
+                "astro/no-set-html-directive": "error",
+                "astro/no-set-text-directive": "error",
+                "astro/no-unused-css-selector": "warn",
+                "astro/prefer-class-list-directive": "warn",
+                "astro/prefer-object-class-list": "warn",
+                "astro/prefer-split-class-list": "warn",
+
+                // accessibility
+                "astro/jsx-a11y/alt-text": "warn",
+                "astro/jsx-a11y/anchor-has-content": "warn",
+                "astro/jsx-a11y/anchor-is-valid": "warn",
+                "astro/jsx-a11y/aria-activedescendant-has-tabindex": "warn",
+                "astro/jsx-a11y/aria-props": "warn",
+                "astro/jsx-a11y/aria-proptypes": "warn",
+                "astro/jsx-a11y/aria-role": "warn",
+                "astro/jsx-a11y/aria-unsupported-elements": "warn",
+                "astro/jsx-a11y/autocomplete-valid": "warn",
+                "astro/jsx-a11y/click-events-have-key-events": "warn",
+                "astro/jsx-a11y/control-has-associated-label": "off",
+                "astro/jsx-a11y/heading-has-content": "warn",
+                "astro/jsx-a11y/html-has-lang": "warn",
+                "astro/jsx-a11y/iframe-has-title": "warn",
+                "astro/jsx-a11y/img-redundant-alt": "warn",
+                "astro/jsx-a11y/interactive-supports-focus": "warn",
+                "astro/jsx-a11y/label-has-associated-control": "warn",
+                "astro/jsx-a11y/label-has-for": "off",
+                "astro/jsx-a11y/media-has-caption": "warn",
+                "astro/jsx-a11y/mouse-events-have-key-events": "warn",
+                "astro/jsx-a11y/no-access-key": "warn",
+                "astro/jsx-a11y/no-autofocus": "warn",
+                "astro/jsx-a11y/no-distracting-elements": "warn",
+                "astro/jsx-a11y/no-interactive-element-to-noninteractive-role": "warn",
+                "astro/jsx-a11y/no-noninteractive-element-interactions": "warn",
+                "astro/jsx-a11y/no-noninteractive-element-to-interactive-role": "warn",
+                "astro/jsx-a11y/no-noninteractive-tabindex": "warn",
+                "astro/jsx-a11y/no-redundant-roles": "warn",
+                "astro/jsx-a11y/no-static-element-interactions": "warn",
+                "astro/jsx-a11y/role-has-required-aria-props": "warn",
+                "astro/jsx-a11y/role-supports-aria-props": "warn",
+                "astro/jsx-a11y/scope": "warn",
+                "astro/jsx-a11y/tabindex-no-positive": "warn"
+            }
+        }
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": "latest",
+        "project": "./tsconfig.json"
+    },
+    "rules": {
+        "semi": "error"
+    }
+}

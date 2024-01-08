@@ -1,0 +1,33 @@
+{
+    "name": "horo-website",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "postinstall": "astro sync",
+        "lint": "stylelint **/*.{css,astro} && eslint **/*.{ts,astro} && prettier --check ."
+    },
+    "dependencies": {
+        "@astrojs/mdx": "^2.0.3",
+        "@fontsource-variable/inter": "^5.0.16",
+        "astro": "^4.1.1",
+        "github-slugger": "^2.0.0",
+        "unist-util-visit": "^5.0.0"
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^6.18.0",
+        "eslint": "^8.56.0",
+        "eslint-plugin-astro": "^0.31.0",
+        "eslint-plugin-deprecation": "^2.0.0",
+        "eslint-plugin-jsx-a11y": "^6.8.0",
+        "postcss-html": "^1.5.0",
+        "prettier": "^3.1.1",
+        "prettier-plugin-astro": "^0.12.3",
+        "stylelint": "^16.1.0",
+        "stylelint-config-html": "^1.1.0",
+        "stylelint-config-standard": "^36.0.0"
+    }
+}

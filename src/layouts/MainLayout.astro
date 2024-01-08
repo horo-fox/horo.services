@@ -1,0 +1,60 @@
+---
+import "@fontsource-variable/inter";
+
+export interface Props {
+    title: string;
+    children: any;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- TODO: favicon -->
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <style is:global>
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-feature-settings:
+                    "ss07" 1,
+                    "ss08" 1;
+            }
+
+            :root {
+                font-feature-settings:
+                    "liga" 1,
+                    "calt" 1;
+                color-scheme: light dark;
+                font-family: "Inter Variable", sans-serif;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            /* this doesn't let me do a light/dark theme switcher and I think that's fine */
+            @media (prefers-color-scheme: dark) {
+                .astro-code,
+                .astro-code span {
+                    color: var(--shiki-dark) !important;
+                    background-color: var(--shiki-dark-bg) !important;
+                }
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>

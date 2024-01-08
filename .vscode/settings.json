@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.mdx": "markdown"
+    },
+    "stylelint.validate": ["css", "astro"],
+    "eslint.validate": ["typescript", "astro"],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[astro]": {
+        "editor.defaultFormatter": "astro-build.astro-vscode"
+    }
+}

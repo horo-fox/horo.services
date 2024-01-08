@@ -1,0 +1,123 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../layouts/MainLayout.astro";
+import selfie from "../holo.png";
+
+const blogPosts = await getCollection("blog");
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+    dateStyle: "full",
+});
+---
+
+<MainLayout title="Horosite">
+    <style>
+        .grid-container {
+            display: grid;
+        }
+
+        article {
+            margin: 0 1em;
+        }
+
+        article + article {
+            border-top: 1px dashed;
+        }
+
+        @media screen and (min-width: 500px) and (orientation: landscape) {
+            article {
+                height: 100vh;
+                overflow-y: auto;
+            }
+
+            @supports (height: 100dvh) {
+                article {
+                    height: 100dvh;
+                }
+            }
+
+            .grid-container {
+                grid-auto-flow: column;
+                grid-auto-columns: 40%;
+            }
+
+            article + article {
+                border-top: initial;
+                border-left: 1px dashed;
+                padding-left: 1em;
+
+                /* manual margin collapse */
+                margin-left: 0;
+            }
+        }
+
+        .selfie {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .selfie {
+                filter: invert(1);
+            }
+        }
+    </style>
+    <div class="grid-container">
+        <article>
+            <h1>Hello, I'm Horo.</h1>
+            <p>I'm hopefully a cool person. Welcome to my web place!</p>
+            <details>
+                <summary>More about me!</summary>
+                <p>
+                    Hi!! I'm a student at the <a href="https://gatech.edu"
+                        >Georgia Institute of Technology</a
+                    >. I enjoy programming, reading, and sometimes math. Horo is
+                    my alias for school-related activities so some things I talk
+                    about may not be reflected on these accounts. Feel free to
+                    contact me at <b>horo</b>@horo.services. If you're in
+                    Atlanta I'd love to say hi!
+                </p>
+            </details>
+            <figure>
+                <img
+                    src={selfie.src}
+                    height={selfie.height}
+                    width={selfie.width}
+                    alt="Monochrome sketch of Holo from Spice and Wolf."
+                    class="selfie"
+                />
+                <figcaption>
+                    Source: 2nd image in <a
+                        href="https://www.pixiv.net/i/71480229"
+                        >https://www.pixiv.net/i/71480229</a
+                    > (edited to add transparency)
+                </figcaption>
+            </figure>
+        </article>
+        <article>
+            <h2>Blog:</h2>
+            <ul>
+                {
+                    blogPosts
+                        .sort(
+                            (a, b) =>
+                                b.data.published.getTime() -
+                                a.data.published.getTime(),
+                        )
+                        .map((post) => (
+                            <li>
+                                <p>
+                                    {/* why does prettier-astro reformat this to add whitespace? */}
+                                    {/* prettier-ignore */}
+                                    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                                    &#8212;
+                                    {dateFormatter.format(post.data.published)}
+                                    <br />
+                                    <em>{post.data.summary.trim()}</em>
+                                </p>
+                            </li>
+                        ))
+                }
+            </ul>
+        </article>
+    </div>
+</MainLayout>
