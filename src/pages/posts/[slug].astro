@@ -24,6 +24,7 @@ const { Content } = await post.render();
             display: grid;
             grid-template-columns: auto min(70ch, 100%) auto;
             gap: 0;
+            margin: 1em;
         }
 
         article > * {
@@ -31,12 +32,14 @@ const { Content } = await post.render();
         }
 
         /* todo: is there a better width to use? */
-        @media (min-width: 55em) {
-            /* todo: should images be fullbleed too? (they're in p tags meaning they need :has) */
+        @media (min-width: 65em) {
+            /* todo: should images be fullbleed too? (they're in p tags meaning they need :has)
+                    (should code even be fullbleed to begin with?) */
             article > pre {
                 grid-column: 1 / 4;
                 width: 70%;
-                margin: auto;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
