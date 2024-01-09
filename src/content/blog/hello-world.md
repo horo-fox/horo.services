@@ -1,5 +1,5 @@
 ---
-title: "Hello, world"
+title: "Hello, world!: a new blog"
 published: 1-5-2024
 summary: "Writing a website for myself!"
 ---

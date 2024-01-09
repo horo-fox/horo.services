@@ -17,7 +17,7 @@ const post = await getEntry({ collection: "blog", slug });
 const { Content } = await post.render();
 ---
 
-<MainLayout title={post.data.title}>
+<MainLayout title={post.data.title} description={post.data.summary}>
     <style is:global>
         /* blog styling. (maybe there's a better way than global styling?) */
         article {
