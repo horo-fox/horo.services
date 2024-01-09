@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://horo.services/sitemap-index.xml

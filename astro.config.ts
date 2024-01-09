@@ -1,12 +1,13 @@
 import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import { visit } from "unist-util-visit";
 import GithubSlugger from "github-slugger";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [mdx()],
+    integrations: [mdx(), sitemap()],
     markdown: {
         rehypePlugins: [
             () => (tree, file) => {
