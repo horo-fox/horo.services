@@ -110,7 +110,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                                 <p>
                                     {/* why does prettier-astro reformat this to add whitespace? */}
                                     {/* prettier-ignore */}
-                                    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+                                    <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
                                     &#8212;
                                     {dateFormatter.format(post.data.published)}
                                     <br />
