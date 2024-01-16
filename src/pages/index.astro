@@ -2,11 +2,17 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import selfie from "../holo.png";
+import { profile } from "../util/data.ts";
 
 const blogPosts = await getCollection("blog");
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
 });
+
+const profileData = profile(
+    `https://${Astro.site?.hostname ?? "localhost:4321"}${selfie.src}`,
+    blogPosts,
+);
 ---
 
 <MainLayout
@@ -63,6 +69,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
             }
         }
     </style>
+    <script type="application/ld+json" set:html={JSON.stringify(profileData)} />
     <div class="grid-container">
         <article>
             <h1>Hello, I'm Horo.</h1>

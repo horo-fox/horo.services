@@ -17,7 +17,7 @@
 
                 // for some reason these aren't enabled by default
                 "astro/semi": "error",
-                "astro/no-set-html-directive": "error",
+                "astro/no-set-html-directive": "off",
                 "astro/no-set-text-directive": "error",
                 "astro/no-unused-css-selector": "warn",
                 "astro/prefer-class-list-directive": "warn",

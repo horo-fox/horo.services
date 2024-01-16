@@ -2,6 +2,7 @@
 import type { GetStaticPaths, InferGetStaticParamsType } from "astro";
 import { getCollection, getEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
+import { blogPost } from "../../util/data";
 
 export const getStaticPaths = (async () => {
     return (await getCollection("blog")).map((post) => ({
@@ -15,6 +16,8 @@ const { slug } = Astro.params as Params;
 const post = await getEntry({ collection: "blog", slug });
 
 const { Content } = await post.render();
+
+const blogPostData = blogPost(post);
 ---
 
 <MainLayout title={post.data.title} description={post.data.summary}>
@@ -97,6 +100,11 @@ const { Content } = await post.render();
             display: inline;
         }
     </style>
+
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify(blogPostData)}
+    />
 
     <article>
         <h1>{post.data.title}</h1>
