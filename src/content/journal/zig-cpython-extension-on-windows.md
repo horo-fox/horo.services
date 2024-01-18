@@ -2,9 +2,10 @@
 title: "CPython extension module made in Zig, on Windows"
 published: 1-18-2024
 summary: "Making a sample CPython extension in Zig that works on Windows"
+quality: 3
 ---
 
-Making a CPython extension in Zig is a combination of both a special `build.zig` and some annoying picky code in whatever file you want.
+Making a CPython extension in Zig is a combination of both a special `build.zig` and some annoying picky code in whatever file you want. This is a followup to [Making C array pointers for C interop in Zig](/posts/c-multi-array-zig/).
 
 ```zig
 const std = @import("std");

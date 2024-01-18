@@ -2,6 +2,7 @@
 title: "Is error-resilient PEG parsing possible?"
 published: 1-10-2024
 summary: "Recent thoughts about adding error resilience to a PEG parser."
+quality: 2
 ---
 
 I've been reading matklad's [Resilient LL Parsing](https://matklad.github.io/2023/05/21/resilient-ll-parsing-tutorial.html) and looking at [swift-syntax](https://github.com/apple/swift-syntax) but both seem to... IDK, approach error resilience by trying as hard as possible to fill in the current object, preventing parsing failures.

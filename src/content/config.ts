@@ -9,6 +9,7 @@ const journalCollection = defineCollection({
             z.date(),
         ),
         summary: z.string(),
+        quality: z.number().default(1),
     }),
 });
 

@@ -104,6 +104,9 @@ const profileData = profile(
         </article>
         <article>
             <h2>Journal:</h2>
+            {
+                /* todo: make a `/posts` page such that it lists all without quality trimming */
+            }
             <ul>
                 {
                     journalEntries
@@ -112,10 +115,14 @@ const profileData = profile(
                                 b.data.published.getTime() -
                                 a.data.published.getTime(),
                         )
+                        .filter((post, i) => {
+                            // todo: this should *probably* be like < 10 or something
+                            return i / post.data.quality < 15;
+                        })
                         .map((post) => (
                             <li>
                                 <p>
-                                    {/* why does prettier-astro reformat this to add whitespace? */}
+                                    {/* todo: why does prettier-astro reformat this to add whitespace? */}
                                     {/* prettier-ignore */}
                                     <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
                                     &#8212;
