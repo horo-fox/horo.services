@@ -31,6 +31,7 @@ export const journalEntry = (
         name: "Horo",
         sameAs: "https://horo.services",
     },
+    url: `/posts/${journalEntry.slug}/`,
     datePublished: journalEntry.data.published,
     // todo: date modified ...?
     headline: journalEntry.data.title,
