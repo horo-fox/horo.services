@@ -6,4 +6,4 @@ summary: "There's this one easy solution I've found for C array pointers in Zig.
 
 `[*c]type` arrays are the death of me. I just spent way too much time figuring one out. The solution? `@intFromPtr(your array)`. It seems to work very well. At least when building the application.
 
-I haven't actually tested this works at runtime yet.
+I'm not quite sure this works though. And alternative I haven't yet tried is `@ptrCast`. That'll probably work!

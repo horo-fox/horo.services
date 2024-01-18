@@ -8,14 +8,14 @@ export const GET: APIRoute = async ({ site }) => {
         return new Response("missing site key");
     }
 
-    const blog = await getCollection("blog");
+    const journal = await getCollection("journal");
 
     return rss({
         site,
-        title: "Horo&#8217;s blog",
+        title: "Horo&#8217;s journal",
         description: "Horo explores stuff",
         items: await Promise.all(
-            blog
+            journal
                 .sort(
                     (a, b) =>
                         b.data.published.getTime() - a.data.published.getTime(),

@@ -1,9 +1,8 @@
 import type { getCollection } from "astro:content";
 
-// ref: https://frodeflaten.com/posts/adding-structured-data-to-blog-posts-using-astro/
 const baseProfile = (
     image: string,
-    blogPosts: Awaited<ReturnType<typeof getCollection<"blog">>>,
+    journalEntries: Awaited<ReturnType<typeof getCollection<"journal">>>,
 ) => ({
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -14,7 +13,7 @@ const baseProfile = (
         agentInteractionStatistic: {
             "@type": "InteractionCounter",
             interactionType: "https://schema.org/WriteAction",
-            userInteractionCount: blogPosts.length,
+            userInteractionCount: journalEntries.length,
         },
         description:
             "Possibly wise fox (?) who like programming, reading, and some math.",
@@ -22,8 +21,8 @@ const baseProfile = (
     },
 });
 
-export const blogPost = (
-    blogPost: Awaited<ReturnType<typeof getCollection<"blog">>>[number],
+export const journalEntry = (
+    journalEntry: Awaited<ReturnType<typeof getCollection<"journal">>>[number],
 ) => ({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -32,18 +31,18 @@ export const blogPost = (
         name: "Horo",
         sameAs: "https://horo.services",
     },
-    datePublished: blogPost.data.published,
+    datePublished: journalEntry.data.published,
     // todo: date modified ...?
-    headline: blogPost.data.title,
+    headline: journalEntry.data.title,
 });
 
 export const profile = (
     image: string,
-    blogPosts: Awaited<ReturnType<typeof getCollection<"blog">>>,
+    journalEntries: Awaited<ReturnType<typeof getCollection<"journal">>>,
 ) => ({
-    ...baseProfile(image, blogPosts),
-    hasPart: blogPosts
-        .map((post) => blogPost(post))
+    ...baseProfile(image, journalEntries),
+    hasPart: journalEntries
+        .map((post) => journalEntry(post))
         .map((post) => ({
             ...post,
             author: {

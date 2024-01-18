@@ -4,19 +4,19 @@ import MainLayout from "../layouts/MainLayout.astro";
 import selfie from "../holo.png";
 import { profile } from "../util/data.ts";
 
-const blogPosts = await getCollection("blog");
+const journalEntries = await getCollection("journal");
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
 });
 
 const profileData = profile(
     `https://${Astro.site?.hostname ?? "localhost:4321"}${selfie.src}`,
-    blogPosts,
+    journalEntries,
 );
 ---
 
 <MainLayout
-    title="Horosite (Cool)"
+    title="It's a cool horosite"
     description="Horo's cool home on the internet!">
     <style>
         .grid-container {
@@ -103,10 +103,10 @@ const profileData = profile(
             </figure>
         </article>
         <article>
-            <h2>Blog:</h2>
+            <h2>Journal:</h2>
             <ul>
                 {
-                    blogPosts
+                    journalEntries
                         .sort(
                             (a, b) =>
                                 b.data.published.getTime() -

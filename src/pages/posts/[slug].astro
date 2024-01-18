@@ -2,10 +2,10 @@
 import type { GetStaticPaths, InferGetStaticParamsType } from "astro";
 import { getCollection, getEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
-import { blogPost } from "../../util/data";
+import { journalEntry } from "../../util/data";
 
 export const getStaticPaths = (async () => {
-    return (await getCollection("blog")).map((post) => ({
+    return (await getCollection("journal")).map((post) => ({
         params: { slug: post.slug },
     }));
 }) satisfies GetStaticPaths;
@@ -13,16 +13,16 @@ export const getStaticPaths = (async () => {
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
 const { slug } = Astro.params as Params;
-const post = await getEntry({ collection: "blog", slug });
+const post = await getEntry({ collection: "journal", slug });
 
 const { Content } = await post.render();
 
-const blogPostData = blogPost(post);
+const journalEntryData = journalEntry(post);
 ---
 
 <MainLayout title={post.data.title} description={post.data.summary}>
     <style is:global>
-        /* blog styling. (maybe there's a better way than global styling?) */
+        /* journal entry styling. (maybe there's a better way than global styling?) */
         article {
             display: grid;
             grid-template-columns: auto min(70ch, 100%) auto;
@@ -103,7 +103,7 @@ const blogPostData = blogPost(post);
 
     <script
         type="application/ld+json"
-        set:html={JSON.stringify(blogPostData)}
+        set:html={JSON.stringify(journalEntryData)}
     />
 
     <article>
