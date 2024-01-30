@@ -153,7 +153,7 @@ fn val(bytes: &[u8]) -> nom::IResult<&[u8], Value> {
             Ok((bytes, Value::Values(std::str::from_utf8(name).unwrap(), result)))
         }
         7 => u8(bytes).map(|(left, right)| (left, Value::Byte(right))),
-        _ => todo!("unknown tag {}, left: {:?}", tag, bytes),
+        _ => panic!("unknown tag {}, left: {:?}", tag, bytes),
     }
 }
 
