@@ -38,12 +38,13 @@ const journalEntryData = journalEntry(post);
         @media (min-width: 65em) {
             /* todo: should images be fullbleed too? (they're in p tags meaning they need :has)
                     (should code even be fullbleed to begin with?) */
-            article > pre {
+
+            /* article > pre {
                 grid-column: 1 / 4;
                 width: 70%;
                 margin-left: auto;
                 margin-right: auto;
-            }
+            } */
         }
 
         /* margins! */
@@ -73,8 +74,8 @@ const journalEntryData = journalEntry(post);
         }
 
         article p + ol,
-        article p + ul,
-        article p + pre {
+        article p + ul/*,
+        article p + pre */ {
             margin-top: 0.5em;
         }
 
@@ -107,6 +108,8 @@ const journalEntryData = journalEntry(post);
     />
 
     <article>
+        <p><a href="/">&#8592; go to homepage</a></p>
+
         <h1>{post.data.title}</h1>
         <p><em>{post.data.summary}</em></p>
         <hr />
