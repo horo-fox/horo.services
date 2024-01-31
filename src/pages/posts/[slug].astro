@@ -67,19 +67,19 @@ const journalEntryData = journalEntry(post);
             margin-top: 0;
         }
 
-        /* nested lists */
-        article li > ul,
-        article li > ol {
-            margin-top: 0;
-        }
-
         article p + ol,
         article p + ul/*,
         article p + pre */ {
             margin-top: 0.5em;
         }
 
-        /* protect against dreaded horiz scrollbar */
+        /* nested lists */
+        article li > ul,
+        article li > ol {
+            margin-top: 0;
+        }
+
+        /* protect against dreaded horizontal scrollbar */
         article img {
             max-width: 100%;
         }
