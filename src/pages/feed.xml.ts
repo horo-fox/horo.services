@@ -24,7 +24,7 @@ export const GET: APIRoute = async ({ site }) => {
                     title: post.data.title,
                     pubDate: post.data.published,
                     description: post.data.summary,
-                    link: `/posts/${post.slug}`,
+                    link: `/journal/${post.slug}/`,
                     // TODO: use Astro's Container API to render the post and then add it as `content` here.
                 })),
         ),

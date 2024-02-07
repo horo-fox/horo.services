@@ -4,7 +4,7 @@ published: 1-30-2024
 summary: "Where is reading progress stored? And in what units? I investigate."
 ---
 
-This is a followup to [Decoding AZW3F and AZW3R](/posts/decoding-azw3f-azw3r/).
+This is a followup to [Decoding AZW3F and AZW3R](/journal/decoding-azw3f-azw3r/).
 
 The reason I wanted to parse these files was to find the current reading progress for books. It looks like that's in the AZW3F file. Here's a copy of what I parsed last time:
 

@@ -105,7 +105,7 @@ const profileData = profile(
         <article>
             <h2>Journal:</h2>
             {
-                /* todo: make a `/posts` page such that it lists all without quality trimming */
+                /* todo: make a `/journal` page such that it lists all without quality trimming */
             }
             <ul>
                 {
@@ -124,7 +124,7 @@ const profileData = profile(
                                 <p>
                                     {/* todo: why does prettier-astro reformat this to add whitespace? */}
                                     {/* prettier-ignore */}
-                                    <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+                                    <a href={`/journal/${post.slug}/`}>{post.data.title}</a>
                                     &#8212;
                                     {dateFormatter.format(post.data.published)}
                                     <br />
