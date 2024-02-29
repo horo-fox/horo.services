@@ -115,10 +115,10 @@ const profileData = profile(
                                 b.data.published.getTime() -
                                 a.data.published.getTime(),
                         )
-                        .filter((post, i) => {
-                            // todo: this should *probably* be like < 10 or something
-                            return i / post.data.quality < 15;
-                        })
+                        // .filter((post, i) => {
+                        //     // todo: this should *probably* be like < 10 or something
+                        //     return i / post.data.quality < 15;
+                        // })
                         .map((post) => (
                             <li>
                                 <p>
