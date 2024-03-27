@@ -1,6 +1,6 @@
 ---
 title: "Observation on the kind of fun things I read"
-published: 3-13-2024
+published: 3-25-2024
 summary: "They all seem overcomplicated?"
 ---
 
