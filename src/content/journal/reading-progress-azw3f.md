@@ -17,22 +17,22 @@ Making that more legible:
 1. `timer.model`
 2. `fpr`
 
-    - location?
-    - the rest are weird
+   - location?
+   - the rest are weird
 
 3. `book.info.store`
 4. `page.history.store`
 
-    - some integer
-    - `page.history.record` with:
-        - location?
-        - unix timestamp in milliseconds
+   - some integer
+   - `page.history.record` with:
+     - location?
+     - unix timestamp in milliseconds
 
 5. `whisperstore.migration.status`
 6. `lpr`
-    - some byte
-    - location?
-    - unix timestamp in milliseconds
+   - some byte
+   - location?
+   - unix timestamp in milliseconds
 
 ```
 [Values("timer.model", [Int(0), Int(16738451), Int(109283), Float(1.8871635610765867), Values("timer.average.calculator", [SmallInt(0), SmallInt(0), SmallInt(3), Values("timer.average.calculator.distribution.normal", [Int(639), Float(237857.9505740977), Float(94780047.88265847)]), Values("timer.average.calculator.distribution.normal", [Int(276), Float(150799.6752729375), Float(82640001.87330134)]), Values("timer.average.calculator.distribution.normal", [Int(265), Float(186925.90309029608), Float(133574691.72020479)]), SmallInt(0)])]), Values("fpr", [String("432748"), Int(18446744073709551615), Int(18446744073709551615), String(""), String("")]), Values("book.info.store", [Int(166098), Float(2.8647342995168787)]), Values("page.history.store", [SmallInt(1), Values("page.history.record", [String("432748"), Int(1706679607926)])]), Values("whisperstore.migration.status", [Boolean(false), Boolean(false)]), Values("lpr", [Byte(2), String("431264"), Int(1706679660866)])]

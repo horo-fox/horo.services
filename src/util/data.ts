@@ -15,8 +15,7 @@ const baseProfile = (
             interactionType: "https://schema.org/WriteAction",
             userInteractionCount: journalEntries.length,
         },
-        description:
-            "Possibly wise fox (?) who like programming, reading, and some math.",
+        description: "Possibly wise fox (?) who like programming, reading, and some math.",
         image,
     },
 });

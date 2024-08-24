@@ -26,5 +26,5 @@ Anyways, I won't post the code now because it doesn't work for most things and I
 
 Future improvements for a future journal entry:
 
--   multiple outputs? (IDK how this would work)
--   n-ary `and` and `or` -- I have the basics set up but the searches and appliers would require a custom trait impl and I was just kinda lazy.
+- multiple outputs? (IDK how this would work)
+- n-ary `and` and `or` -- I have the basics set up but the searches and appliers would require a custom trait impl and I was just kinda lazy.

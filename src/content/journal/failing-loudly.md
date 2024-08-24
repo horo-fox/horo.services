@@ -8,8 +8,8 @@ I really don't like JavaScript's tendency to fail quietly. I understand the rati
 
 Let's compare two possible approaches for handling external data:
 
--   throwing it into an unstructured blob and going through that
--   converting it via a schema
+- throwing it into an unstructured blob and going through that
+- converting it via a schema
 
 JavaScript seems to go with the first. It sucks. Special syntax for property access, conveniences for unexpected data, type coersion, etc.
 

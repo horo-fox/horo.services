@@ -9,18 +9,18 @@ Yes, I know KFX is a thing nowadays and AZW3 is dumb and old. But I have AZW3 bo
 
 Anyways from the start, I'm assuming this is a TLV-style format. And looking at it more, it does seem that way for arrays at least:
 
--   `FE` is the tag for an array
--   `1` means the name is zero size, otherwise continue
--   big endian `u16` for name size
--   followed by size bytes which is the array's name
--   this is followed by any number of values, ending with a `FF` tag
+- `FE` is the tag for an array
+- `1` means the name is zero size, otherwise continue
+- big endian `u16` for name size
+- followed by size bytes which is the array's name
+- this is followed by any number of values, ending with a `FF` tag
 
 String values seem to be represented as such:
 
--   `03` as a tag
--   `1` means stop and this is zero length, otherwise continue
--   big endian `u16` for size
--   followed by size bytes which is that string's contents
+- `03` as a tag
+- `1` means stop and this is zero length, otherwise continue
+- big endian `u16` for size
+- followed by size bytes which is that string's contents
 
 The overall file seems to consistently start with:
 
@@ -32,28 +32,28 @@ Followed by a big endian `u32` which is the number of values.
 
 Smaller integer values seem to be represented as such:
 
--   `01` as a tag
--   big endian `u32`
+- `01` as a tag
+- big endian `u32`
 
 Integer values seem to be as such:
 
--   `02` as a tag
--   big endian `u64`
+- `02` as a tag
+- big endian `u64`
 
 I'm pretty sure these are floats? (based on looking things up etc.)
 
--   `04` as tag
--   `f64`
+- `04` as tag
+- `f64`
 
 When making a parser for this, I encounted a tag `0`:
 
--   `00` as tag
--   presumably `00` for false and `01` for true
+- `00` as tag
+- presumably `00` for false and `01` for true
 
 I also found `7`:
 
--   `07` as a tag
--   single byte
+- `07` as a tag
+- single byte
 
 Here's what an azw3r file looks like when parsed:
 

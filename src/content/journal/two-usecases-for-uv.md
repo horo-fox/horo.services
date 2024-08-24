@@ -8,5 +8,5 @@ So `uv` is a thing now. Better Python packaging, maybe? Personally its use as a 
 
 Here's two use cases where it seems pretty useful:
 
--   Generating a lockfile for an arbitrary Python version. (I sure hope it errors if it hits any sdists in this mode)
--   Running tests against the minimum version of your dependencies.
+- Generating a lockfile for an arbitrary Python version. (I sure hope it errors if it hits any sdists in this mode)
+- Running tests against the minimum version of your dependencies.

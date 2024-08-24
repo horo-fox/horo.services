@@ -5,8 +5,8 @@
     "stylelint.validate": ["css", "astro"],
     "eslint.validate": ["typescript", "astro"],
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "dprint.dprint",
     "[astro]": {
-        "editor.defaultFormatter": "astro-build.astro-vscode"
+        "editor.defaultFormatter": "dprint.dprint"
     }
 }

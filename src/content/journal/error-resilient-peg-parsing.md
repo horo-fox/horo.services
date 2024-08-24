@@ -11,7 +11,7 @@ However, PEG parsing relies on parsing failures to parse things. I don't immedia
 
 I don't have a solution. Here's some ideas I've been considering:
 
-1.  Parse without error resilience, then if all paths fail then take the one that went the "furthest" with error resilience. If there's a tie then probably just go with the first parse option. This seems to be a good idea for prefix-related mistakes (so like, `def () -> None print("haiii")` or `[3, 4 a = 4`), especially when combined with swift-syntax style token precedence (e.g. you cannot parse past punctuation looking for an identifier). But this doesn't seem like a very good idea for suffix-related mistakes (`b = 5, 6]`). I think this might be an acceptable tradeoff for programming where we mostly write left-to-right.
-2.  Just skip the current token instead.
+1. Parse without error resilience, then if all paths fail then take the one that went the "furthest" with error resilience. If there's a tie then probably just go with the first parse option. This seems to be a good idea for prefix-related mistakes (so like, `def () -> None print("haiii")` or `[3, 4 a = 4`), especially when combined with swift-syntax style token precedence (e.g. you cannot parse past punctuation looking for an identifier). But this doesn't seem like a very good idea for suffix-related mistakes (`b = 5, 6]`). I think this might be an acceptable tradeoff for programming where we mostly write left-to-right.
+2. Just skip the current token instead.
 
 I think 1. is an acceptable approach for my application. But I haven't implemented it so maybe I'll come back here talking about how it's a bad idea.

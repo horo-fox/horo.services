@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { visit } from "unist-util-visit";
 import GithubSlugger from "github-slugger";
+import { visit } from "unist-util-visit";
 
 // https://astro.build/config
 export default defineConfig({

@@ -1,6 +1,6 @@
 {
     "recommendations": [
-        "astro-build.astro-vscode",
+        "dprint.dprint",
         "stylelint.vscode-stylelint",
         "dbaeumer.vscode-eslint"
     ],

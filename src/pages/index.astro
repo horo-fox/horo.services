@@ -1,70 +1,72 @@
 ---
 import { getCollection } from "astro:content";
-import MainLayout from "../layouts/MainLayout.astro";
 import selfie from "../holo.png";
+import MainLayout from "../layouts/MainLayout.astro";
 import { profile } from "../util/data.ts";
 
 const journalEntries = await getCollection("journal");
 
 const profileData = profile(
-    `https://${Astro.site?.hostname ?? "localhost:4321"}${selfie.src}`,
+    // todo: move https:/ into the string once https://github.com/g-plane/markup_fmt/issues/48 is fixed
+    "https:/" + `/${Astro.site?.hostname ?? "localhost:4321"}${selfie.src}`,
     journalEntries,
 );
 ---
 
 <MainLayout
     title="It's a cool horosite"
-    description="Horo's cool home on the internet!">
+    description="Horo's cool home on the internet!"
+>
     <style>
-        .grid-container {
-            display: grid;
+    .grid-container {
+        display: grid;
+    }
+
+    article {
+        margin: 0 1em;
+    }
+
+    article + article {
+        border-top: 1px dashed;
+    }
+
+    @media screen and (min-width: 500px) and (orientation: landscape) {
+        article {
+            height: 100vh;
+            overflow-y: auto;
         }
 
-        article {
-            margin: 0 1em;
+        @supports (height: 100dvh) {
+            article {
+                height: 100dvh;
+            }
+        }
+
+        .grid-container {
+            grid-auto-flow: column;
+            grid-auto-columns: 40%;
         }
 
         article + article {
-            border-top: 1px dashed;
+            border-top: initial;
+            border-left: 1px dashed;
+            padding-left: 1em;
+
+            /* manual margin collapse */
+            margin-left: 0;
         }
+    }
 
-        @media screen and (min-width: 500px) and (orientation: landscape) {
-            article {
-                height: 100vh;
-                overflow-y: auto;
-            }
+    .selfie {
+        max-width: 100%;
+        height: auto;
+    }
 
-            @supports (height: 100dvh) {
-                article {
-                    height: 100dvh;
-                }
-            }
-
-            .grid-container {
-                grid-auto-flow: column;
-                grid-auto-columns: 40%;
-            }
-
-            article + article {
-                border-top: initial;
-                border-left: 1px dashed;
-                padding-left: 1em;
-
-                /* manual margin collapse */
-                margin-left: 0;
-            }
-        }
-
+    @media (prefers-color-scheme: dark) {
         .selfie {
-            max-width: 100%;
-            height: auto;
+            filter: invert(1);
         }
-
-        @media (prefers-color-scheme: dark) {
-            .selfie {
-                filter: invert(1);
-            }
-        }
+    }
     </style>
     <script type="application/ld+json" set:html={JSON.stringify(profileData)} />
     <div class="grid-container">
@@ -75,12 +77,12 @@ const profileData = profile(
                 <summary>More about me!</summary>
                 <p>
                     Hi!! I'm a student at the <a href="https://gatech.edu"
-                        >Georgia Institute of Technology</a
-                    >. I enjoy programming, reading, and sometimes math. Horo is
-                    my alias for school-related activities so some things I talk
-                    about may not be reflected on these accounts. Feel free to
-                    contact me at <b>horo</b>@horo.services. If you're in
-                    Atlanta I'd love to say hi!
+                    >Georgia Institute of Technology</a>. I enjoy programming,
+                    reading, and sometimes math. Horo is my alias for
+                    school-related activities so some things I talk about may
+                    not be reflected on these accounts. Feel free to contact me
+                    at <b>horo</b>@horo.services. If you're in Atlanta I'd love
+                    to say hi!
                 </p>
             </details>
             <figure>
@@ -94,8 +96,8 @@ const profileData = profile(
                 <figcaption>
                     Source: 2nd image in <a
                         href="https://www.pixiv.net/i/71480229"
-                        >https://www.pixiv.net/i/71480229</a
-                    > (edited to add transparency)
+                    >https://www.pixiv.net/i/71480229</a> (edited to add
+                    transparency)
                 </figcaption>
             </figure>
         </article>

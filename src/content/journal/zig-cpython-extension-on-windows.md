@@ -51,9 +51,9 @@ pub fn build(b: *std.Build) !void {
 
 Here's a couple choice points:
 
--   `addIncludePath` to allow us to see Python's header files
--   `addObjectFile` because we need to link against `<python>/libs/python3.lib` to make a DLL. This seems to be just required on Windows, but I haven't made an extension on Linux yet so not entirely sure.
--   Note that this explicitly references `src/example.zig` -- that's what determines the name for the next step.
+- `addIncludePath` to allow us to see Python's header files
+- `addObjectFile` because we need to link against `<python>/libs/python3.lib` to make a DLL. This seems to be just required on Windows, but I haven't made an extension on Linux yet so not entirely sure.
+- Note that this explicitly references `src/example.zig` -- that's what determines the name for the next step.
 
 Then, you have this file as `example.zig` in your `src` folder:
 
@@ -82,8 +82,8 @@ export fn PyInit_example() callconv(.C) *py.PyObject {
 
 More choice points:
 
--   `var` is required because otherwise Zig will put these structs in some read-only memory as far as I can tell. This is a problem because CPython tries to set `ob_refcnt` to `1` (in case you messed up, I guess).
--   This will probably only build against CPython 3.11. While it can be imported on CPython 3.12, building against CPython 3.12 requires replacing `.ob_refcnt = 1` with `.unnamed_0 = { .ob_refcnt = 1 }`. I assume there's been other changes in building against earlier versions too. You can find `cimport.zig` in your `zig-cache/` folder to look at the structure so you can fix things up.
+- `var` is required because otherwise Zig will put these structs in some read-only memory as far as I can tell. This is a problem because CPython tries to set `ob_refcnt` to `1` (in case you messed up, I guess).
+- This will probably only build against CPython 3.11. While it can be imported on CPython 3.12, building against CPython 3.12 requires replacing `.ob_refcnt = 1` with `.unnamed_0 = { .ob_refcnt = 1 }`. I assume there's been other changes in building against earlier versions too. You can find `cimport.zig` in your `zig-cache/` folder to look at the structure so you can fix things up.
 
 Now, to build it:
 
@@ -99,7 +99,7 @@ Hopefully that works! That's what worked for me at least.
 
 Next steps:
 
--   Making it build on Unix
--   Making a wheel and sdist
-    -   Wheel should be cross-compiled for all systems
-    -   sdist should be able to pull in Zig and build for local system
+- Making it build on Unix
+- Making a wheel and sdist
+  - Wheel should be cross-compiled for all systems
+  - sdist should be able to pull in Zig and build for local system

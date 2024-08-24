@@ -6,8 +6,8 @@ summary: "The broad strokes of making a wheel for a CPython extension made in Zi
 
 Basically, a wheel is a zipfile containing two things:
 
--   the package
--   the metadata
+- the package
+- the metadata
 
 The package is easy: just put your `example.pyd` at the top level. On the other hand, the metadata is trickier.
 

@@ -8,7 +8,7 @@
         "preview": "astro preview",
         "astro": "astro",
         "postinstall": "astro sync",
-        "lint": "stylelint **/*.{css,astro} && eslint **/*.{ts,astro} && prettier --check ."
+        "lint": "stylelint **/*.{css,astro} && eslint **/*.{ts,astro} && dprint check"
     },
     "dependencies": {
         "@astrojs/mdx": "^3.1.4",
@@ -21,13 +21,12 @@
     },
     "devDependencies": {
         "@typescript-eslint/parser": "^8.2.0",
+        "dprint": "^0.47.2",
         "eslint": "^8.57.0",
         "eslint-plugin-astro": "^1.2.3",
         "eslint-plugin-deprecation": "^3.0.0",
         "eslint-plugin-jsx-a11y": "^6.8.0",
         "postcss-html": "^1.5.0",
-        "prettier": "^3.1.1",
-        "prettier-plugin-astro": "^0.14.1",
         "stylelint": "^16.1.0",
         "stylelint-config-html": "^1.1.0",
         "stylelint-config-standard": "^36.0.0"
