@@ -5,13 +5,10 @@ import selfie from "../holo.png";
 import { profile } from "../util/data.ts";
 
 const journalEntries = await getCollection("journal");
-const dateFormatter = new Intl.DateTimeFormat("en-US", {
-    dateStyle: "full",
-});
 
 const profileData = profile(
     `https://${Astro.site?.hostname ?? "localhost:4321"}${selfie.src}`,
-    journalEntries,
+    journalEntries
 );
 ---
 
@@ -103,37 +100,7 @@ const profileData = profile(
             </figure>
         </article>
         <article>
-            <h2>Journal:</h2>
-            {
-                /* todo: make a `/journal` page such that it lists all without quality trimming */
-            }
-            <ul>
-                {
-                    journalEntries
-                        .sort(
-                            (a, b) =>
-                                b.data.published.getTime() -
-                                a.data.published.getTime(),
-                        )
-                        // .filter((post, i) => {
-                        //     // todo: this should *probably* be like < 10 or something
-                        //     return i / post.data.quality < 15;
-                        // })
-                        .map((post) => (
-                            <li>
-                                <p>
-                                    {/* todo: why does prettier-astro reformat this to add whitespace? */}
-                                    {/* prettier-ignore */}
-                                    <a href={`/journal/${post.slug}/`}>{post.data.title}</a>
-                                    &#8212;
-                                    {dateFormatter.format(post.data.published)}
-                                    <br />
-                                    <em>{post.data.summary.trim()}</em>
-                                </p>
-                            </li>
-                        ))
-                }
-            </ul>
+            <p>Lab notebook soon hopefully.</p>
         </article>
     </div>
 </MainLayout>
