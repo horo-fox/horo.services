@@ -8,7 +8,7 @@ const journalEntries = await getCollection("journal");
 
 const profileData = profile(
     `https://${Astro.site?.hostname ?? "localhost:4321"}${selfie.src}`,
-    journalEntries
+    journalEntries,
 );
 ---
 
